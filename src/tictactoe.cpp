@@ -27,10 +27,9 @@ TicTacToe::TicTacToe(std::string player1, std::string player2) : player1_(player
 
 void TicTacToe::play() {
     // game loop
-    while (true) {
-        // Print the board
-        printBoard();
+    printBoard();
 
+    while (true) {
         // Get the player's move
         int move;
         std::cout << "Player " << currentPlayer_ << ", enter a move (1-9): ";
@@ -42,7 +41,8 @@ void TicTacToe::play() {
             continue;
         }
 
-        // Check if the game is over
+        printBoard();
+        
         if (checkWin()) {
             std::cout << "Player " << currentPlayer_ << " wins!" << std::endl;
             break;
@@ -51,11 +51,9 @@ void TicTacToe::play() {
             break;
         }
 
-        // Switch players
         switchPlayers();
     }
 
-    // Ask if the players want to play again
     char playAgain;
     while(true) {
         std::cout << "Do you want to play again? (y/n) ";
@@ -67,7 +65,6 @@ void TicTacToe::play() {
         newGame.play();
     }
 }
-
 
 void TicTacToe::switchPlayers() {
     if (currentPlayer_ == player1_) {
