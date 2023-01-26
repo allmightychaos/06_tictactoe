@@ -8,6 +8,7 @@ class TicTacToe {
 public:
     TicTacToe(std::string player1, std::string player2);
     void play();
+    void algorithmPlay();
 
 private:
     std::string player1_;
@@ -15,11 +16,14 @@ private:
     std::string currentPlayer_;
     std::vector<std::string> board_;
 
+    std::string getColor(int board_index);
     void printBoard();
     bool checkWin();
     bool checkTie();
     void switchPlayers();
     bool makeMove(int move);
+
+    int algorithm();
 };
 
 #endif 
